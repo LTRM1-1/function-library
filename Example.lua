@@ -1,11 +1,27 @@
-local CustomLib = require(game.ReplicatedStorage.CustomLib) --roblox property
+local fc = loadstring(game:HttpGet("https://raw.githubusercontent.com/LTRM1-1/function-library/main/SOURCE"))()
 
--- Example usage of loop()
-CustomLib.loop(function(i)
+fc.loop(function(i)
     print("Loop iteration:", i)
-end, 5, 1) -- Runs 5 times with a 1-second delay
+end, 5, 1)  
 
--- Example usage of repeatEvery()
-CustomLib.repeatEvery(0.2, function()
-    print("Repeating every 0.2 seconds")
+fc.repeatEvery(0.5, function()
+    print("Repeating every 0.5 seconds")
 end)
+
+fc.async(function()
+    print("This runs asynchronously!")
+end)
+
+fc.delay(3, function()
+    print("This runs after 3 seconds")
+end)
+
+print(fc.round(3.14159, 2))  
+
+print(fc.randomString(10))  
+
+print(fc.trim("  Hello World  "))  
+
+print(fc.contains({1, 2, 3, 4}, 3))  
+
+print(fc.rgbToHex(255, 165, 0))  
