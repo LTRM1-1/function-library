@@ -1,0 +1,19 @@
+local fc = {}
+
+function fc.loop(func, times, delay)
+    for i = 1, times do
+        task.wait(delay or 0)
+        func(i)
+    end
+end
+
+function fc.repeatEvery(interval, func)
+    task.spawn(function()
+        while true do
+            task.wait(interval)
+            func()
+        end
+    end)
+end
+
+return fc
